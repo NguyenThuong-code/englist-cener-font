@@ -1,0 +1,17 @@
+/* user-form.component.css */
+.form-field-container {
+ .mat-form-field{
+   margin-left: 30px;
+   width: 600px;
+   margin-top: 25px;
+ }
+}
+
+.button-row {
+  float: left;
+  margin-top: 30px;
+  margin-left: 400px;
+}
+.button-row button {
+  margin-right: 25px; /* Add space between buttons */
+}

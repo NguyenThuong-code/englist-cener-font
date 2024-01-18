@@ -1,0 +1,74 @@
+<form class="d-flex flex-wrap flex-column justify-content-between" [formGroup]="form">
+  <div class="row">
+    <mat-form-field class="col-3 ml-3" [floatLabel]="'auto'">
+      <input style="margin-right: -100px;" matInput formControlName="nameFilter" placeholder="Search Name" (keydown)="onkeydownEvent($event)">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <button mat-raised-button class="btn" color="primary"  (click)="search()">Search</button>
+    <button mat-raised-button class="btn" color="primary"  (click)="addAndEditUser()"> <mat-icon>add</mat-icon></button>
+  </div>
+</form>
+
+
+<!--<div>-->
+<!--  <button style="margin-top:10px;margin-right: 10px" mat-raised-button color="primary" [disabled]="numberOfCheck !==1" (click)="openModelEdit()">Edit</button>-->
+
+<!--  <button style="margin-top:10px;margin-right: 10px"  mat-raised-button color="primary" [disabled]="numberOfCheck ===0" (click)="openModelDelete()">Delete</button>-->
+<!--  <button mat-raised-button color="primary" (click)="exportExcel()">Export excel</button>-->
+
+<!--</div>-->
+
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Name </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.name}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="dateOfBirth">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Date Of Birth </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.dateOfBirth}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="startWorkingDate">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Start Working Date </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.startWorkingDate}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="markType">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Mark Type </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.markType.name}}
+    </td>
+  </ng-container>
+    <ng-container matColumnDef="schedule">
+      <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Schedule </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" (click)="openSchedulePopup(element.schedule)">Schedule</button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef style="font-size: 14px;"> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" (click)="addAndEditUser()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayUsers"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayUsers;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 [pageSize]="10"
+                 [length]="totalItems"
+                 (page)="nextPage($event)">
+  </mat-paginator>
+</div>
+

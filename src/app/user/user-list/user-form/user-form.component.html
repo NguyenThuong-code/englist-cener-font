@@ -1,0 +1,25 @@
+<!-- user-form.component.html -->
+<form  class="form-field-container" [formGroup]="userForm" style="margin-bottom: 30px;">
+  <mat-form-field >
+    <input matInput formControlName="name" placeholder="Name" required>
+  </mat-form-field>
+
+  <mat-form-field >
+    <input matInput formControlName="dateOfBirth" placeholder="Date of Birth" required>
+  </mat-form-field>
+
+  <mat-form-field >
+    <input matInput formControlName="startWorkingDate" placeholder="Start Working Date" required>
+  </mat-form-field>
+
+  <mat-form-field >
+    <input matInput formControlName="markType" placeholder="Mark Type" required>
+  </mat-form-field>
+
+  <!-- Add other form fields as needed -->
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="saveUser()">Save</button>
+    <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+  </div>
+</form>

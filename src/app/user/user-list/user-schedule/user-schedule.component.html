@@ -1,0 +1,20 @@
+<!-- user-schedule.component.html -->
+<mat-dialog-content>
+  <div class="header-container">
+    <div class="center">
+      <h1>Schedule</h1>
+    </div>
+    <button mat-button color="primary"  class="close-icon" [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="checkbox-container">
+    <div *ngFor="let shift of shifts; let i = index" class="checkbox-item">
+      <label>
+        <input type="checkbox" [checked]="data['shift' + (i + 1)]" disabled
+               [ngClass]="{'checked': data['shift' + (i + 1)], 'unchecked': !data['shift' + (i + 1)]}"/>
+        {{ shift }}
+      </label>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,40 @@
+/* user-schedule.component.css */
+.header-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  .center{
+    display: block;
+  }
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  color: darkslateblue;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkbox-item {
+  margin-right: 15px; /* Adjust the margin as needed */
+  font-size: 20px;
+}
+
+.close-icon {
+  color: dimgray;
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+/* Custom styling for checked and unchecked checkboxes */
+.custom-checkbox:checked {
+  color: green; /* Change to your desired color for checked state */
+}
+
+.custom-checkbox:not(:checked) {
+  color: black; /* Change to your desired color for unchecked state */
+}
